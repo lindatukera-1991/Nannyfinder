@@ -45,6 +45,8 @@ export default function App() {
               <p>Pregledajte profile, iskustvo, dostupnost i lokaciju te jednostavno kontaktirajte dadilju koja odgovara vašim potrebama.</p>
             </section>
 
+            <button title='Potrebno napraviti'> GUMB dodaj novu dadilju </button>
+
             <div className="layout">
               <div className="sidebar">
                 <FilterPanel {...filtriranje} />

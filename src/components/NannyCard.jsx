@@ -25,6 +25,9 @@ export default function NannyCard({ dadilja, onOtvori }) {
       <button className="btn btn--primary" onClick={() => onOtvori(dadilja.id)}>
         Pogledaj profil
       </button>
+      <hr />
+      <button title='Potrebno napraviti'> GUMB Promjeni dadilju </button>
+      <button title='Potrebno napraviti'> GUMB Obriši dadilju </button>
     </article>
   );
 }
