@@ -1,7 +1,7 @@
 import NannyCard from './NannyCard.jsx';
 
 // Popis kartica ili poruka kad nema rezultata.
-export default function NannyList({ dadilje, onOtvori, onOcistiFiltere }) {
+export default function NannyList({ dadilje, onOtvori, onPromijeni, onObrisi, onOcistiFiltere }) {
   if (dadilje.length === 0) {
     return (
       <div className="empty">
@@ -16,7 +16,7 @@ export default function NannyList({ dadilje, onOtvori, onOcistiFiltere }) {
   return (
     <div className="grid">
       {dadilje.map((d) => (
-        <NannyCard key={d.id} dadilja={d} onOtvori={onOtvori} />
+        <NannyCard key={d.id} dadilja={d} onOtvori={onOtvori} onPromijeni={onPromijeni} onObrisi={onObrisi} />
       ))}
     </div>
   );

@@ -31,3 +31,31 @@ export function validirajPoruku(vrijednosti) {
 
   return greske;
 }
+
+// Validacija forme za dodavanje i promjenu dadilje.
+export function validirajDadilju(v) {
+  const greske = {};
+
+  if (v.ime.trim().length < 2) greske.ime = 'Unesite ime i prezime (najmanje 2 znaka).';
+  if (v.grad.trim() === '') greske.grad = 'Unesite grad.';
+  if (v.kvart.trim() === '') greske.kvart = 'Unesite kvart.';
+
+  const opis = v.opis.trim();
+  if (opis.length < 10) greske.opis = 'Opis mora imati najmanje 10 znakova.';
+  else if (opis.length > 200) greske.opis = 'Opis može imati najviše 200 znakova.';
+
+  const iskustvo = Number(v.iskustvo);
+  if (v.iskustvo === '' || !Number.isInteger(iskustvo) || iskustvo < 0 || iskustvo > 50) {
+    greske.iskustvo = 'Unesite cijeli broj godina od 0 do 50.';
+  }
+
+  const cijena = Number(v.cijena);
+  if (v.cijena === '' || !(cijena > 0) || cijena > 200) {
+    greske.cijena = 'Cijena mora biti veća od 0 i najviše 200 €/h.';
+  }
+
+  if (v.dobDjece.length === 0) greske.dobDjece = 'Odaberite barem jednu dob djece.';
+  if (v.jezici.split(',').every((j) => j.trim() === '')) greske.jezici = 'Unesite barem jedan jezik.';
+
+  return greske;
+}

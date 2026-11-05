@@ -3,7 +3,7 @@ import Rating from './Rating.jsx';
 import { formatirajCijenu, formatirajGodine } from '../utils/format.js';
 
 // Kartica dadilje u popisu.
-export default function NannyCard({ dadilja, onOtvori }) {
+export default function NannyCard({ dadilja, onOtvori, onPromijeni, onObrisi }) {
   return (
     <article className="card">
       <div className="card__top">
@@ -25,9 +25,10 @@ export default function NannyCard({ dadilja, onOtvori }) {
       <button className="btn btn--primary" onClick={() => onOtvori(dadilja.id)}>
         Pogledaj profil
       </button>
-      <hr />
-      <button title='Potrebno napraviti'> GUMB Promjeni dadilju </button>
-      <button title='Potrebno napraviti'> GUMB Obriši dadilju </button>
+      <div className="card__akcije">
+        <button className="btn btn--ghost" onClick={() => onPromijeni(dadilja.id)}>Promijeni</button>
+        <button className="btn btn--danger" onClick={() => onObrisi(dadilja.id)}>Obriši</button>
+      </div>
     </article>
   );
 }
